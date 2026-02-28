@@ -24,12 +24,12 @@ function App() {
   const navigate = useNavigate();
 
   return (
-    <div className='w-screen h-screen bg-linear-to-r from-indigo-600 from-10% via-blue-700 via-30% to-blue-800 to-90%'>
+    <div className='w-screen h-full bg-linear-to-r from-indigo-600 from-10% via-blue-700 via-30% to-blue-800 to-90%'>
       <div id='header' className='flex w-fit p-3 pr-4 text-white bg-black rounded-br-3xl rounded-tr-3xl'>
         {icon('https://github.com/dafzaaal', faGithub)}
         {icon('https://www.linkedin.com/in/dawood-afzaal-36933b1a5/', faLinkedin)}
       </div>
-      <div className='w-full h-full text-center flex flex-col justify-center items-center'>
+      <div className='w-full text-center flex flex-col justify-center items-center'>
         <span id='title-span' className='flex flex-col'>
            <h1 className='font-consolas font-extrabold text-white text-8xl text-shadow-xl'>Practice</h1>
             <h1 className='font-consolas font-extrabold text-white text-9xl text-shadow-xl'>Linux</h1>

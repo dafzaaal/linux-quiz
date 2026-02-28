@@ -1,3 +1,7 @@
 #mc-qt ol {
     list-style-type: lower-alpha;
 }
+
+input {
+    margin-right: 0.75rem;
+}
