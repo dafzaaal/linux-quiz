@@ -1,0 +1,24 @@
+{
+    "1": {
+        "Question": "The keyboard shortcut to quickly reverse search through your terminal history?",
+        "Type": "MC",
+        "Answers": {
+            "A": "ctlr + a",
+            "B": "ctrl + r",
+            "C": "command + shift + 5",
+            "D": "alt + q"
+        },
+        "Expected Answer": "B"
+    },
+    "2": {
+        "Question": "Which command would show the current IP table on your computer?",
+        "Type": "MC",
+        "Answers": {
+            "A": "ipconfig",
+            "B": "ifconfig",
+            "C": "ip --table",
+            "D": "iptables"
+        },
+        "Expected Answer": "D"
+    }
+}

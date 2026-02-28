@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Inconsolata:wght@200..900&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --font-bowlby: "Bowlby One SC", sans-serif;
+  --font-inconsolata: "Inconsolata", sans-serif;
+}
+
+body {
+  @apply m-0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+/* Media Queies -- START */
+
+@media (540px <= width <= 1000px) {
+  #title-span h1 {
+    font-size: 5rem;
+  }
+  #code {
+    visibility: hidden;
+    width: 0%;
+  }
+  #quiz {
+    width: 100%;
+  }
+}
+
+#mc-options li:hover {
+  cursor: pointer;
+}
