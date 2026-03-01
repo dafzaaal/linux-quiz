@@ -21,6 +21,10 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: appCss,
       },
+      {
+        rel: 'icon',
+        href: './linux-icon.ico'
+      },
     ],
   }),
   shellComponent: RootDocument,
@@ -31,6 +35,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+        <link rel='icon' type='image/x-icon' href='linux-icon.png'/>
         <HeadContent />
       </head>
       <body>
