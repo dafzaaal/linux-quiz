@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import asyncio
+from dotenv import load_dotenv
 from google.adk.agents import Agent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
@@ -23,6 +24,7 @@ APP_NAME="google_search_agent"
 USER_ID="user1234"
 SESSION_ID="1234"
 
+load_dotenv()
 
 root_agent = Agent(
     name="basic_search_agent",
@@ -31,7 +33,7 @@ root_agent = Agent(
     instruction=
                 """
                     You're a helpful AI agent which will only answer questions dealing with Linux.
-                    Also, in the event you pull information from three or more sources, list the top three resources as citation.
+                    Also, in the event you pull information from three or more sources, list the top three resources used to answer the query.
                 """,
     
     # tools refer to which set of skills the AI agent can access, in this instance, it only has access to the Google Seach tool
