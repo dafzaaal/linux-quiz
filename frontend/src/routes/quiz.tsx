@@ -39,6 +39,7 @@ function RouteComponent() {
 
   function mcTemplate(questions: Questions) {
     const [ans, setAns] = useState('');
+    const [showChats, setShowChats] = useState(false);
     function finalAns(s: string) {
       setAns(s);
       console.log(`User choose answer: ${s}`);
@@ -70,57 +71,73 @@ function RouteComponent() {
     )
   }
 
+  function openChat() {
+    const chatDOMElement = document.getElementById('chat-box');
+    if (chatDOMElement) {
+      chatDOMElement.style.display = "visible";
+    }
+  }
+
   return (
-    <div className='h-full w-screen bg-linear-to-r from-indigo-600 from-10% via-blue-700 via-30% to-blue-800 to-90%'>
-      <div className='flex flex-row justify-between items-center'>
-        <button 
-          className='text-white bg-blue-700 border-2 text-md font-bold pl-7 pr-7 pt-1 pb-1 ml-5 mt-5 rounded-4xl hover:cursor-pointer hover:bg-white hover:text-blue-700'
-          onClick={() => {navigator({to:'/'})}}
-          >
-          Back
-        </button>
-        <img src={RobotSVG} className='size-20 p-3 shadow-none bg-white rounded-full mr-10 mt-7 hover:cursor-pointer hover:shadow-2xl'/>
-
+    <div className='h-full w-1/1 bg-linear-to-r from-indigo-600 from-10% via-blue-700 via-30% to-blue-800 to-90%'>
+      <div id='chat-box' className='bg-white h-1/1 invisible absolute'>
+        Chat message
       </div>
+      <div id='page'>
+        <div className='flex flex-row justify-between items-center'>
+          <button 
+            className='text-white bg-blue-700 border-2 text-md font-bold pl-7 pr-7 pt-1 pb-1 ml-5 mt-5 rounded-4xl hover:cursor-pointer hover:bg-white hover:text-blue-700'
+            onClick={() => {navigator({to:'/'})}}
+            >
+            Back
+          </button>
+          <img 
+            src={RobotSVG} 
+            className='size-20 p-3 shadow-none bg-white rounded-full mr-10 mt-7 hover:cursor-pointer hover:shadow-2xl'
+            onClick={openChat}
+            />
 
-      <div className='flex flex-col justify-center items-center'>
-        {shortAnsTemplate({
-          questionNumber: 1,
-          question: "In Linux what does the character '|' typically mean?"
-        })}
-        <div id='short-answer-qt' className='w-full h-full flex  flex-col space-y-10 justify-baseline items-center font-inconsolata'>
-                {mcTemplate({
-                  questionNumber: 2,
-                  question: "In the terminal, what does the shortcut crtl + r do?",
-                  q1: "Re-run the last command with Sudo.",
-                  q2: "Allow you to reverse search through the terminal history.",
-                  q3: "Move the cursor to the start of the line.",
-                  q4: "Move the cursor to the end of the line."
-                })}
-                {mcTemplate({
-                  questionNumber: 3,
-                  question: "In the terminal, what does the shortcut crtl + r do?",
-                  q1: "Re-run the last command with Sudo.",
-                  q2: "Allow you to reverse search through the terminal history.",
-                  q3: "Move the cursor to the start of the line.",
-                  q4: "Move the cursor to the end of the line."
-                })}
-                {shortAnsTemplate({
-                  questionNumber: 4,
-                  question: "What does the 'bin' folder in the Linux home directory contain?"
-                })}
-                {mcTemplate({
-                  questionNumber: 5,
-                  question: "Which of the following statements is true about the 'etc' folder.",
-                  q1: "It contains user data, information such as usernames, passwords, etc.",
-                  q2: "It contains pure functions and utilities that don't have any side effects.",
-                  q3: "It contains all applications currently installed on the device.",
-                  q4: "It contains shared files that are essential components for the OS"
-                })}
-            <button className='text-blue-700 bg-white border-2 text-md font-bold pl-7 pr-7 pt-1 pb-1 mt-3 mb-3 rounded-4xl hover:cursor-pointer hover:bg-blue-700 hover:text-white'>
-              Submit
-            </button>
-            </div>
+        </div>
+
+        <div className='flex flex-col justify-center items-center'>
+          {shortAnsTemplate({
+            questionNumber: 1,
+            question: "In Linux what does the character '|' typically mean?"
+          })}
+          <div id='short-answer-qt' className='w-full h-full flex  flex-col space-y-10 justify-baseline items-center font-inconsolata'>
+                  {mcTemplate({
+                    questionNumber: 2,
+                    question: "In the terminal, what does the shortcut crtl + r do?",
+                    q1: "Re-run the last command with Sudo.",
+                    q2: "Allow you to reverse search through the terminal history.",
+                    q3: "Move the cursor to the start of the line.",
+                    q4: "Move the cursor to the end of the line."
+                  })}
+                  {mcTemplate({
+                    questionNumber: 3,
+                    question: "In the terminal, what does the shortcut crtl + r do?",
+                    q1: "Re-run the last command with Sudo.",
+                    q2: "Allow you to reverse search through the terminal history.",
+                    q3: "Move the cursor to the start of the line.",
+                    q4: "Move the cursor to the end of the line."
+                  })}
+                  {shortAnsTemplate({
+                    questionNumber: 4,
+                    question: "What does the 'bin' folder in the Linux home directory contain?"
+                  })}
+                  {mcTemplate({
+                    questionNumber: 5,
+                    question: "Which of the following statements is true about the 'etc' folder.",
+                    q1: "It contains user data, information such as usernames, passwords, etc.",
+                    q2: "It contains pure functions and utilities that don't have any side effects.",
+                    q3: "It contains all applications currently installed on the device.",
+                    q4: "It contains shared files that are essential components for the OS"
+                  })}
+              <button className='text-blue-700 bg-white border-2 text-md font-bold pl-7 pr-7 pt-1 pb-1 mt-3 mb-3 rounded-4xl hover:cursor-pointer hover:bg-blue-700 hover:text-white'>
+                Submit
+              </button>
+              </div>
+              </div>
             </div>
         </div>
   )
