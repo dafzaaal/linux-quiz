@@ -21,3 +21,30 @@ Endpoints
             }]
         }
         }
+
+
+
+1. 
+    198.22.45.173 = 11000110 00010110 00101101 10101101
+
+    11000110 00010110 00101101 10 | 101101 (IP Address in binary)
+    11111111 11111111 11111111 11 | 000000 /26 (255.255.255.192)
+
+    Network Address - 198.22.45.128
+    First Usable Address - 198.22.45.129
+    Broadcast Address - 198.22.45.191
+
+2. 
+    - 200.15.10.0/24 -> is the Class C network we've been allocated
+    - Seeing as no future growth is planned, we need to find the smallest subnet which would contain
+      close to 28 hosts which would be a /27 giving us 2^{32 - 27} = 2^5 - 2 = 30 hosts per subnet 
+    
+    /27 -> 11111111 11111111 11111111 11100000 
+    200.15.10.0 -> 11001000.00001111.00001010.00000000
+
+    11111111 11111111 11111111 111| 00000 
+    11001000.00001111.00001010.000| 00000
+
+    Network Address - 200.15.10.0
+    Broadcast Address - 200.15.10.31
+    Host Addresses - 200.15.10.1 to 200.15.10.30
