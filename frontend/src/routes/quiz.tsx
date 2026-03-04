@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import RobotSVG from './robot-icon.svg';
+import { motion } from "framer-motion";
 
 export const Route = createFileRoute('/quiz')({
   component: RouteComponent,
@@ -50,19 +51,19 @@ function RouteComponent() {
         <h6 className='text-md'>{questions.question}</h6>
         <div className='flex flex-col space-y-1'>
           <label>
-            <input type='radio' name='mc' onClick={() => {finalAns(questions.q1)}}></input>
+            <input type='radio' name={"mc-" + questions.questionNumber} onClick={() => {finalAns(questions.q1)}}></input>
             {questions.q1}
           </label>
           <label>
-            <input type='radio' name='mc' onClick={() => {finalAns(questions.q2)}}></input>
+            <input type='radio' name={"mc-" + questions.questionNumber} onClick={() => {finalAns(questions.q2)}}></input>
             {questions.q2}
           </label>
           <label>
-            <input type='radio' name='mc' onClick={() => {finalAns(questions.q3)}}></input>
+            <input type='radio' name={"mc-" + questions.questionNumber} onClick={() => {finalAns(questions.q3)}}></input>
             {questions.q3}
           </label>
           <label>
-            <input type='radio' name='mc' onClick={() => {finalAns(questions.q3)}}></input>
+            <input type='radio' name={"mc-" + questions.questionNumber} onClick={() => {finalAns(questions.q3)}}></input>
             {questions.q4}
           </label>
         </div>
@@ -80,9 +81,7 @@ function RouteComponent() {
 
   return (
     <div className='h-full w-1/1 bg-linear-to-r from-indigo-600 from-10% via-blue-700 via-30% to-blue-800 to-90%'>
-      <div id='chat-box' className='bg-white h-1/1 invisible absolute'>
-        Chat message
-      </div>
+      
       <div id='page'>
         <div className='flex flex-row justify-between items-center'>
           <button 

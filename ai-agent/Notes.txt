@@ -1,0 +1,23 @@
+Running the ADK API Server
+--------------------------
+
+* Run the adk API server from the parent directory i.e. one directory outside of where the agent lives 
+  in this case we would run 'adb api_server --port 8000' in the linux_agent folder
+
+Endpoints
+---------
+
+1. 'http://127.0.0.1:8000/apps/linux_agent/users/:username/sessions/:session' -> takes two path parameters which we define, a username as well as a session id 
+2. 'http://localhost:8000/run' -> this allows us to prompt the AI given a specific user and their session, takes JSON data in the format below
+
+        {
+        "appName": "linux_agent",
+        "userId": "dafzaal",
+        "sessionId": "1",
+        "newMessage": {
+            "role": "user",
+            "parts": [{
+            "text": "How is bat different than cat in Linux?"
+            }]
+        }
+        }
